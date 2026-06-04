@@ -6,15 +6,24 @@
     <title>ASX MotoDrome | Elite Off-Road Experience</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Flatpickr Core Theme Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
 </head>
 <body>
-    <!-- Floating WhatsApp Widget -->
-    <a href="https://wa.me/919876543210?text=Hello%20ASX%20MotoDrome!%20I'm%20ready%20to%20dominate%20the%20dirt.%20I%20want%20to%20book%20a%20slot." class="whatsapp-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="wa-icon">
+
+    <div id="preloader">
+        <div class="logo-wrapper">
+            <img src="IMG/Logo1.png" alt="ASX MotoDrome" class="animated-logo">
+        </div>
+    </div>
+
+    <a href="https://wa.me/917624881965?text=Hello%20ASX%20MotoDrome!%20I'm%20ready%20to%20dominate%20the%20dirt.%20I%20want%20to%20book%20a%20slot." class="whatsapp-float" target="_blank" aria-label="Direct Chat Connection">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" class="wa-icon">
     </a>
 
-    <!-- Glassmorphism Navbar -->
-    <nav class="navbar glass-panel">
+    <!-- PREMIUM TOP NAVIGATION PANEL -->
+    <nav class="navbar premium-ios-card">
         <div class="logo-container">
             <img src="IMG/Logo1.png" alt="ASX MotoDrome Logo" class="nav-logo">
         </div>
@@ -22,31 +31,31 @@
             <li><a href="#about">ABOUT US</a></li>
             <li><a href="#packages">PACKAGES</a></li>
             <li><a href="#fleet">FLEET</a></li>
-            <li><a href="#events">EVENTS & OFFERS</a></li>
+            <li><a href="#events">EVENTS</a></li>
             <li><a href="#gallery">GALLERY</a></li>
             <li><a href="#contact">CONTACT</a></li>
+            <!-- SEAMLESS SECURE GATE TO DASHBOARD -->
+            <li><a href="admin.html" style="color: var(--text-muted); border-left: 1px solid rgba(255,255,255,0.15); padding-left: 15px; margin-left: 5px;"><span style="color: var(--red-main); margin-right: 4px;">🔒</span> PORTAL</a></li>
         </ul>
     </nav>
 
-    <!-- Hero Section -->
     <header class="hero">
-        <div class="hero-bg" style="background-image: url('IMG/Vechicle.jpg');"></div>
+        <div class="hero-bg" style="background-image: url('IMG/elongated 1.png');"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content fade-in-up">
             <h1>DOMINATE THE <span>DIRT</span></h1>
             <p>Bengaluru's Ultimate Off-Road Track. Unleash the Ashva 4x4.</p>
-            <a href="#packages" class="cta-btn pulse-anim"><span>VIEW PACKAGES</span></a>
+            <a href="#packages" class="cta-btn"><span>VIEW PACKAGES</span></a>
         </div>
     </header>
 
-    <!-- ABOUT US SECTION -->
     <section id="about" class="about-section fade-in">
         <div class="section-title">
             <h2>ABOUT <span>US</span></h2>
             <p>Where Adventure Meets Experience.</p>
         </div>
         <div class="about-grid">
-            <div class="about-text glass-panel">
+            <div class="about-text premium-ios-card">
                 <h3>THE STORY OF ASX MOTODROME</h3>
                 <p>ASX Motodrome was born from a vision — to create India’s first true off-road experiential hub, where thrill, adventure, and innovation come together. Founded by motorsport enthusiasts and adventurers, ASX Motodrome exists to provide people with an experience that goes beyond ordinary driving.</p>
                 <p>India has countless highways and city roads, but very few places where you can truly unleash the spirit of off-roading. That gap gave birth to ASX Motodrome — a space built not just for driving, but for creating unforgettable experiences, building community, and igniting a culture of adventure.</p>
@@ -60,7 +69,7 @@
                 </div>
             </div>
             
-            <div class="about-text glass-panel">
+            <div class="about-text premium-ios-card">
                 <h3>OUR VISION</h3>
                 <p>To redefine motorsport and adventure culture in India by building a world-class off-road ecosystem that inspires thrill, learning, and pride in Made-in-India innovations. With ASX Motodrome, we aim to expand into rallies, workshops, championships, and experiential festivals.</p>
                 <p>As partners of A-THON, we also carry the mission to promote and empower Indian-engineered mobility solutions like the ASHVA 4X4 across multiple sectors.</p>
@@ -76,8 +85,6 @@
         </div>
     </section>
 
-    <!-- PACKAGES SECTION -->
-   <!-- PACKAGES SECTION -->
     <section id="packages" class="packages-section fade-in">
         <div class="section-title">
             <h2>TRACK <span>PACKAGES</span></h2>
@@ -85,14 +92,10 @@
         </div>
         
         <div class="package-grid">
-            <!-- Card 1 -->
-            <div class="package-card glass-panel fade-in delay-1">
+            <div class="package-card premium-ios-card fade-in delay-1">
                 <h3>PRO DRIVE TRAINING</h3>
                 <div class="duration-badge">10 Mins Total</div>
-                <div class="price-wrapper">
-                    <span class="price-main">₹999</span>
-                    <span class="price-gst">+18% GST</span>
-                </div>
+                <div class="price">₹999<span class="gst-text">+18% GST</span></div>
                 <ul>
                     <li>5 mins track time</li>
                     <li>5 mins briefing</li>
@@ -100,14 +103,10 @@
                 <button class="book-btn" onclick="openCheckout('Pro Drive Training')"><span>BOOK NOW</span></button>
             </div>
 
-            <!-- Card 2 -->
-            <div class="package-card glass-panel fade-in delay-2">
+            <div class="package-card premium-ios-card fade-in delay-2">
                 <h3>OBSTACLE CONQUEROR</h3>
                 <div class="duration-badge">15 Mins Total</div>
-                <div class="price-wrapper">
-                    <span class="price-main">₹1,799</span>
-                    <span class="price-gst">+18% GST</span>
-                </div>
+                <div class="price">₹1,799<span class="gst-text">+18% GST</span></div>
                 <ul>
                     <li>10 mins track time</li>
                     <li>5 mins briefing</li>
@@ -115,14 +114,10 @@
                 <button class="book-btn" onclick="openCheckout('Obstacle Conqueror Challenge')"><span>BOOK NOW</span></button>
             </div>
 
-            <!-- Card 3 -->
-            <div class="package-card glass-panel fade-in delay-3">
+            <div class="package-card premium-ios-card fade-in delay-3">
                 <h3>FULL THROTTLE</h3>
                 <div class="duration-badge">15 Mins Total</div>
-                <div class="price-wrapper">
-                    <span class="price-main">₹3,299</span>
-                    <span class="price-gst">+18% GST</span>
-                </div>
+                <div class="price">₹3,299<span class="gst-text">+18% GST</span></div>
                 <ul>
                     <li>10 mins track time</li>
                     <li>5 mins briefing</li>
@@ -130,15 +125,11 @@
                 <button class="book-btn" onclick="openCheckout('Full Throttle Experience')"><span>BOOK NOW</span></button>
             </div>
 
-            <!-- Card 4 -->
-            <div class="package-card glass-panel featured fade-in delay-4">
+            <div class="package-card premium-ios-card featured fade-in delay-4">
                 <div class="badge">ULTIMATE</div>
                 <h3>ADVENTURE VALUE PACK</h3>
                 <div class="duration-badge">25 Mins Total</div>
-                <div class="price-wrapper">
-                    <span class="price-main">₹3,999</span>
-                    <span class="price-gst">+18% GST</span>
-                </div>
+                <div class="price">₹3,999<span class="gst-text">+18% GST</span></div>
                 <ul>
                     <li>20 mins track time</li>
                     <li>5 mins briefing</li>
@@ -147,21 +138,21 @@
             </div>
         </div>
     </section>
-    <!-- FLEET SECTION -->
+
     <section id="fleet" class="fleet-section fade-in">
         <div class="section-title">
             <h2>OUR <span>FLEET</span></h2>
             <p>Master the terrain with India's most aggressive off-road machines.</p>
         </div>
         <div class="fleet-grid">
-            <div class="fleet-card glass-panel">
+            <div class="fleet-card premium-ios-card">
                 <img src="IMG/IMG1.webp" alt="Ashva 4x4 Orange">
                 <div class="fleet-info">
                     <h3>THE ASHVA 4x4</h3>
                     <p>India's first proudly made-in-India utility ATV/UTV platform. Built for raw power and unmatched rugged performance.</p>
                 </div>
             </div>
-            <div class="fleet-card glass-panel">
+            <div class="fleet-card premium-ios-card">
                 <img src="IMG/IMG2.webp" alt="Ashva 4x4 Blue">
                 <div class="fleet-info">
                     <h3>HIGH-SPEED DIRT TRACKERS</h3>
@@ -171,7 +162,6 @@
         </div>
     </section>
 
-    <!-- EVENTS & OFFERS SECTION -->
     <section id="events" class="dual-section fade-in">
         <div class="section-title">
             <h2>EVENTS & <span>OFFERS</span></h2>
@@ -179,7 +169,7 @@
         </div>
         
         <div class="dual-grid">
-            <div class="glass-panel highlight-col">
+            <div class="premium-ios-card highlight-col">
                 <h3 class="col-title">CURATED EVENTS</h3>
                 <div class="sub-grid">
                     <div class="sub-card glass-panel-inner"><h4>🎉 Celebration</h4><p>Birthdays, anniversaries, and private parties.</p></div>
@@ -189,7 +179,7 @@
                 </div>
             </div>
 
-            <div class="glass-panel highlight-col">
+            <div class="premium-ios-card highlight-col">
                 <h3 class="col-title">EXCLUSIVE OFFERS</h3>
                 <div class="sub-grid">
                     <div class="sub-card glass-panel-inner"><h4>📸 Influencer Collab</h4><p>A creative playground for content creators.</p></div>
@@ -201,26 +191,24 @@
         </div>
     </section>
 
-    <!-- VISUAL GALLERY -->
     <section id="gallery" class="gallery-section fade-in">
         <div class="section-title">
             <h2>THE <span>EXPERIENCE</span></h2>
             <p>Action straight from the MotoDrome dirt track.</p>
         </div>
         <div class="gallery-grid">
-            <img src="IMG/IMG3.webp" alt="ASX MotoDrome Action 1" class="glass-panel">
-            <img src="IMG/IMG4.webp" alt="ASX MotoDrome Action 2" class="glass-panel">
-            <img src="IMG/IMG5.webp" alt="ASX MotoDrome Action 3" class="glass-panel">
+            <img src="IMG/IMG3.webp" alt="ASX MotoDrome Action 1" class="premium-ios-card">
+            <img src="IMG/IMG4.webp" alt="ASX MotoDrome Action 2" class="premium-ios-card">
+            <img src="IMG/IMG5.webp" alt="ASX MotoDrome Action 3" class="premium-ios-card">
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
     <section id="contact" class="contact-section fade-in">
         <div class="section-title">
             <h2>GET IN TOUCH <span>WITH US</span></h2>
         </div>
         <div class="contact-grid">
-            <div class="contact-details glass-panel">
+            <div class="contact-details premium-ios-card">
                 <h3>CONTACT INFO</h3>
                 <p><strong>Address:</strong> Hoskote, Bengaluru, Karnataka</p>
                 <p><a href="https://maps.app.goo.gl/n7JfEutXGQW17WiGA" target="_blank" class="map-link">📍 View on Google Maps</a></p>
@@ -229,7 +217,7 @@
                 <p><strong>Hours:</strong> 10:30 AM to 5:30 PM</p>
             </div>
             
-            <form class="contact-form glass-panel" id="waDirectForm">
+            <form class="contact-form premium-ios-card" id="waDirectForm">
                 <input type="text" id="waName" placeholder="Your Name" required>
                 <textarea rows="4" id="waMessage" placeholder="How can we help you today?" required></textarea>
                 <button type="submit" class="cta-btn"><span>SEND VIA WHATSAPP</span></button>
@@ -237,17 +225,24 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo">ASX <span>MOTODROME</span></div>
             <p class="footer-tagline">Where Adventure Meets Experience, and Where India’s First Proudly Made Off-Road Machine Lives.</p>
             
-            <div class="social-links">
-                <a href="https://www.instagram.com/asx_motodrome?igsh=Z2Zmdm13a3ZncHd0" target="_blank">Instagram</a>
-                <a href="https://www.facebook.com/p/ASX-Motodrome-61575127250339/" target="_blank">Facebook</a>
-                <a href="https://www.linkedin.com/company/asx-motodrome/" target="_blank">LinkedIn</a>
-                <a href="https://www.youtube.com/@asxmotodrome" target="_blank">YouTube</a>
+            <div class="social-icon-container">
+                <a href="https://wa.me/917624881965" target="_blank" class="social-icon-wrapper wa-accent" aria-label="WhatsApp Channel Profile">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 11.948 0c3.176.001 6.165 1.24 8.413 3.488 2.248 2.248 3.487 5.237 3.487 8.411 0 6.549-5.338 11.897-11.89 11.897-2.006-.002-3.98-.51-5.735-1.474L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.852.002-2.632-1.023-5.105-2.887-6.97C16.584 1.908 14.113.882 11.48.882c-5.442 0-9.866 4.42-9.87 9.852-.001 1.748.46 3.454 1.336 4.966l-.1.365-1.045 3.817 3.91-1.026.356-.21z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/asx_motodrome?igsh=Z2Zmdm13a3ZncHd0" target="_blank" class="social-icon-wrapper ig-accent" aria-label="Instagram Digital Profile">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/p/ASX-Motodrome-61575127250339/" target="_blank" class="social-icon-wrapper fb-accent" aria-label="Facebook Digital Profile">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/company/asx-motodrome/" target="_blank" class="social-icon-wrapper ln-accent" aria-label="LinkedIn Corporate Profile">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
             </div>
             
             <div class="footer-bottom">
@@ -256,9 +251,8 @@
         </div>
     </footer>
 
-    <!-- CHECKOUT MODAL -->
     <div id="checkoutModal" class="modal">
-        <div class="modal-content glass-panel">
+        <div class="modal-content">
             <span class="close-btn" onclick="closeCheckout()">×</span>
             <h2>SECURE YOUR SLOT</h2>
             <p id="selectedPackageName" class="highlight-text"></p>
@@ -276,31 +270,31 @@
                     <label>Email</label>
                     <input type="email" id="custEmail" required placeholder="Email">
                 </div>
+                
                 <div class="datetime-row">
                     <div class="input-group">
                         <label>Preferred Date</label>
-                        <input type="date" id="bookDate" required>
+                        <input type="text" id="bookDate" required placeholder="YYYY-MM-DD">
                     </div>
                     <div class="input-group">
                         <label>Preferred Time</label>
-                        <input type="time" id="bookTime" required>
+                        <input type="text" id="bookTime" required placeholder="Choose Time">
                     </div>
                 </div>
 
-                <!-- Payment Options -->
                 <div class="input-group payment-options">
                     <label>Payment Mode</label>
-                    <div class="radio-group" style="margin-top: 10px; display: flex; flex-direction: column; gap: 12px;">
-                        <label class="radio-label" style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                    <div class="radio-group">
+                        <label class="radio-label">
                             <input type="radio" name="payMode" value="secure" checked onchange="updatePaymentMode()">
-                            <span style="color: #fff; font-size: 15px;">Secure Spot (Advance ₹499)</span>
+                            <span>Secure Spot (Advance ₹499)</span>
                         </label>
-                        <label class="radio-label" style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <label class="radio-label">
                             <input type="radio" name="payMode" value="spot" onchange="updatePaymentMode()">
-                            <span style="color: #fff; font-size: 15px;">Pay on the Spot (₹0)</span>
+                            <span>Pay on the Spot (₹0 Today)</span>
                         </label>
                     </div>
-                    <p id="spotWarning" class="warning-text" style="display: none; margin-top: 15px; color: #ff6666; font-size: 13px; line-height: 1.5; background: rgba(255,0,0,0.1); padding: 10px; border-radius: 4px; border-left: 3px solid #ff0000;">
+                    <p id="spotWarning" class="warning-text">
                         ⚠️ Note: Paying on the spot means your slot is not guaranteed until you arrive. Priority is given to secured customers.
                     </p>
                 </div>
@@ -311,6 +305,10 @@
     </div>
 
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="checkout.js"></script>
 </body>
 </html>

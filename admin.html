@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASX MotoDrome | Secure Command Center</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
+</head>
+<body class="admin-body">
+
+    <!-- SECURE GATEWAY (LOGIN) -->
+    <div id="adminLoginScreen" class="admin-gate-wrapper">
+        <form id="adminLoginForm" class="premium-ios-card gate-card">
+            <div class="gate-header">
+                <img src="IMG/Logo1.png" alt="Logo" class="gate-logo">
+                <h2>CRM SYSTEM ACCESS</h2>
+            </div>
+            
+            <!-- INLINE ERROR CONTAINER FOR LOGIN FAULTS -->
+            <div id="loginErrorMessage" style="color: #ff4d4d; font-size: 13px; margin-bottom: 16px; display: none; font-weight: 600; background: rgba(211,18,37,0.1); padding: 10px; border-radius: 8px; border-left: 3px solid var(--red-main); text-align: left;"></div>
+
+            <div class="input-group">
+                <label>Authorized Username</label>
+                <input type="email" id="adminEmail" required placeholder="admin@asxmotodrome.com">
+            </div>
+            <div class="input-group">
+                <label>Security Key</label>
+                <input type="password" id="adminPassword" required placeholder="••••••••">
+            </div>
+            <button type="submit" class="modern-straight-btn"><span>SECURE LOGIN</span></button>
+        </form>
+    </div>
+
+    <!-- MAIN WORKSPACE TERMINAL -->
+    <div id="adminDashboardScreen" class="admin-dashboard-wrapper" style="display: none;">
+        <header class="dash-navbar premium-ios-card">
+            <div class="dash-brand">
+                <img src="IMG/Logo1.png" alt="Logo" class="dash-logo">
+                <h1>CRM <span>WORKSPACE</span></h1>
+            </div>
+            <div style="display: flex; gap: 12px; align-items: center;">
+                <button onclick="openManualBookingModal()" class="logout-btn" style="background: #25D366; border-color: #25D366; color: #000;">+ WALK-IN</button>
+                <button onclick="generateBriefReport()" class="logout-btn" style="background: #00bfff; border-color: #00bfff; color: #000;">BRIEF REPORT</button>
+                <button onclick="triggerCSVSelect()" class="logout-btn">IMPORT CSV DATA</button>
+                <input type="file" id="csvFileInput" accept=".csv" style="display: none;" onchange="handleCSVImport(event)">
+                <a href="index.html" class="logout-btn" style="text-decoration: none; display: inline-flex; align-items: center;">LIVE SITE</a>
+                <button onclick="triggerAdminLogout()" class="logout-btn" style="background: var(--red-main); border-color: var(--red-main);">LOGOUT</button>
+            </div>
+        </header>
+
+        <main class="dash-content-area">
+            <!-- ANALYTICS CARDS LEDGER -->
+            <div class="stats-grid">
+                <div class="stat-bubble premium-ios-card">
+                    <span class="label">RESERVATIONS</span>
+                    <h3 id="statTotalBookings">0</h3>
+                </div>
+                <div class="stat-bubble premium-ios-card">
+                    <span class="label" style="color: #25D366;">CASH HANDLED</span>
+                    <h3 id="statSecuredRevenue" style="color: #25D366;">₹0</h3>
+                </div>
+                <div class="stat-bubble premium-ios-card">
+                    <span class="label" style="color: #00bfff;">GROSS WITH GST</span>
+                    <h3 id="statProjectedRevenue" style="color: #00bfff;">₹0</h3>
+                </div>
+                <div class="stat-bubble premium-ios-card">
+                    <span class="label" style="color: #ffa500;">OUTSTANDING TRACK BAL</span>
+                    <h3 id="statOnSpotBalance" style="color: #ffa500;">₹0</h3>
+                </div>
+            </div>
+
+            <!-- CONTROLS FILTERS BAR -->
+            <div class="filter-control-bar premium-ios-card">
+                <div class="filter-group">
+                    <label>status</label>
+                    <select id="filterStatus" onchange="applyFiltersAndSort()">
+                        <option value="all">all profiles</option>
+                        <option value="Secured Advance Confirmed">secured advance</option>
+                        <option value="Confirmed - Pay on Spot">pay on spot</option>
+                        <option value="Pending Payment">pending payment</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>package</label>
+                    <select id="filterPackage" onchange="applyFiltersAndSort()">
+                        <option value="all">all packages</option>
+                        <option value="Pro Drive Training">pro drive training</option>
+                        <option value="Obstacle Conqueror Challenge">obstacle conqueror</option>
+                        <option value="Full Throttle Experience">full throttle</option>
+                        <option value="Adventure Value Pack">adventure value pack</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>track date</label>
+                    <input type="text" id="filterDate" placeholder="select target date" onchange="applyFiltersAndSort()">
+                </div>
+                <div class="filter-group">
+                    <label>chronology</label>
+                    <select id="sortOrder" onchange="applyFiltersAndSort()">
+                        <option value="desc">newest entries</option>
+                        <option value="asc">oldest entries</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- PRIMARY REGISTRY TRACKER STREAM -->
+            <div class="stream-container">
+                <h2>LIVE DATA TRACKER STREAM (<span id="filteredCount">0</span>)</h2>
+                <div class="tracker-table-wrapper premium-ios-card">
+                    <table class="tracker-sheet-table">
+                        <thead>
+                            <tr>
+                                <!-- FIXED COMPRESSION TYPOS BY REMOVING ACCIDENTAL FIXED PIXEL CAPS -->
+                                <th style="width: 25%;">DRIVER DETAILS</th>
+                                <th style="width: 20%;">PACKAGE TIER</th>
+                                <th style="width: 18%;">SCHEDULE</th>
+                                <th style="width: 15%;">LEDGER METRICS (INR)</th>
+                                <th style="width: 14%;">STATUS</th>
+                                <th style="width: 8%; text-align: center;">ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody id="trackerTableStream">
+                            <!-- Populated Dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODAL POPUP FOR WALK-INS (REMOVED GROUP FUNCTIONALITY COMPLETELY) -->
+    <div id="manualBookingModal" class="modal">
+        <div class="modal-content premium-ios-card">
+            <div class="modal-header">
+                <h2 style="font-size: 24px; color: #fff;">LOG MANUAL RESERVATION</h2>
+                <span class="close-btn" onclick="closeManualBookingModal()">×</span>
+            </div>
+            
+            <!-- INLINE ERROR CONTAINER FOR MANUAL BOOKINGS -->
+            <div id="manualFormStatus" style="color: #ff4d4d; font-size: 13px; margin-bottom: 16px; display: none; font-weight: 600; background: rgba(211,18,37,0.1); padding: 10px; border-radius: 8px; border-left: 3px solid var(--red-main); text-align: left;"></div>
+
+            <form id="manualEntryForm">
+                <div class="input-group">
+                    <label>Driver Full Name</label>
+                    <input type="text" id="manualName" required placeholder="Driver Name">
+                </div>
+                <div class="datetime-row">
+                    <div class="input-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="manualPhone" required placeholder="91XXXXXXXX">
+                    </div>
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" id="manualEmail" required placeholder="driver@email.com">
+                    </div>
+                </div>
+                <div class="datetime-row">
+                    <div class="input-group">
+                        <label>Track Date</label>
+                        <input type="text" id="manualDate" required placeholder="YYYY-MM-DD">
+                    </div>
+                    <div class="input-group">
+                        <label>Time Slot</label>
+                        <input type="text" id="manualTime" required placeholder="Select Time">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Package Tier Selection</label>
+                    <select id="manualPackage" required>
+                        <option value="Pro Drive Training">Pro Drive Training (₹999)</option>
+                        <option value="Obstacle Conqueror Challenge">Obstacle Conqueror Challenge (₹1,799)</option>
+                        <option value="Full Throttle Experience">Full Throttle Experience (₹3,299)</option>
+                        <option value="Adventure Value Pack">Adventure Value Pack (₹3,999)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Payment Channel Blueprint</label>
+                    <select id="manualPayMode" required>
+                        <option value="secure">Secured Advance Payment (Collected ₹499)</option>
+                        <option value="spot">Pay on the Spot (₹0 Upfront)</option>
+                    </select>
+                </div>
+                <button type="submit" id="manualSubmitBtn" class="modern-straight-btn"><span>COMMIT RECORD</span></button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
